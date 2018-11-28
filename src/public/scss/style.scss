@@ -1,0 +1,253 @@
+
+@font-face {
+  font-family: "8-bit";
+  src: url('../fonts/PressStart2P.ttf') format("truetype");
+}
+
+@font-face {
+  font-family: "retro";
+  src: url('../fonts/VCR.ttf') format("truetype");
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  z-index: 1;
+  outline: none;
+}
+
+html, body{
+  overflow-x: hidden;
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  min-width: 100vw;
+}
+
+main {
+  background-color: #461ca4;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  align-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+h1{
+  svg{
+    padding: 2%;
+    width: 100vw;
+    height: auto;
+    max-width: 35em;
+    cursor: pointer;
+    path{
+      fill: #ffffff;
+        transition: filter .1s linear, fill .1s linear;
+    }
+  }
+}
+h1:hover{
+  svg{
+    path{
+      fill: #66c7f4;
+    }
+  }
+}
+
+h3{
+  font-family: '8-bit';
+  color: #fff;
+  text-align: center;
+  line-height: 2em;
+}
+#scanlines{
+  z-index: 100;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top:0;
+  left: 0;
+  opacity: .13;
+  pointer-events: none;
+  background-image: url('../img/scanlines.png');
+  background-repeat: repeat repeat;
+  background-size: 2px;
+}
+
+#loading-bar{
+  width: 80vw;
+  display: flex;
+  flex-flow: row nowrap;
+  overflow: hidden;
+  border: 2em solid #fff;
+  -o-border-image: url("../img/8-bit-border.png") 27% repeat;
+     border-image: url("../img/8-bit-border.png") 27% repeat;
+}
+
+#load-fill{
+  width: 0%;
+  transition: width .2s linear;
+  height: 2em;
+  background-color: #fff;
+}
+
+#animate-blocks-container{
+  width: 0;
+  overflow: visible;
+}
+
+.block{
+  width: 1rem;
+  height: 1rem;
+  background-color: #fff;
+  animation: fillblock 4s linear infinite 2s;
+  opacity: 0;
+}
+
+.block:nth-child(2){
+  transform: translateX(-6em);
+  animation-delay: 4s;
+}
+
+@keyframes fillblock {
+  0%{
+    opacity: 0;
+    transform: translateX(32px);
+  }
+  1%{
+    opacity: 1;
+    transform: translateX(32px);
+  }
+  2%{ transform: translateX(30px) }
+  4%{ transform: translateX(30px) }
+  5%{ transform: translateX(28px) }
+  7%{ transform: translateX(28px) }
+  8%{ transform: translateX(26px) }
+  10%{ transform: translateX(26px) }
+  11%{ transform: translateX(24px) }
+  13%{ transform: translateX(24px) }
+  14%{ transform: translateX(22px) }
+  16%{ transform: translateX(22px) }
+  17%{ transform: translateX(20px) }
+  19%{ transform: translateX(20px) }
+  20%{ transform: translateX(18px) }
+  23%{ transform: translateX(18px) }
+  24%{ transform: translateX(16px) }
+  26%{ transform: translateX(16px) }
+  27%{ transform: translateX(14px) }
+  30%{ transform: translateX(14px) }
+  31%{ transform: translateX(12px) }
+  33%{ transform: translateX(12px) }
+  34%{ transform: translateX(10px) }
+  36%{ transform: translateX(10px) }
+  37%{ transform: translateX(8px) }
+  39%{ transform: translateX(8px) }
+  40%{ transform: translateX(6px) }
+  42%{ transform: translateX(6px) }
+  43%{ transform: translateX(4px) }
+  45%{ transform: translateX(4px) }
+  46%{ transform: translateX(2px) }
+  49%{ transform: translateX(2px) }
+  50%{ transform: translateX(0px) }
+  53%{ transform: translateX(0px) }
+  54%{ transform: translateX(-2px) }
+  57%{ transform: translateX(-2px) }
+  58%{ transform: translateX(-4px) }
+  61%{ transform: translateX(-4px) }
+  62%{ transform: translateX(-6px) }
+  69%{ transform: translateX(-6px) }
+  70%{ transform: translateX(-8px) }
+  77%{ transform: translateX(-8px) }
+  78%{ transform: translateX(-10px) }
+  84%{ transform: translateX(-10px) }
+  85%{ transform: translateX(-12px) }
+  91%{ transform: translateX(-12px) }
+  92%{ transform: translateX(-14px) }
+  99%{ transform: translateX(-14px); opacity: 1; }
+  100%{
+    transform: translateX(-16px);
+    opacity: 0;
+    }
+}
+
+#speech-bubble{
+  transform: scaleX(0) scaleY(0);
+  width: 27em;
+  max-width: 100%;
+  max-height: 100%;
+  min-height: 0;
+  height: auto;
+  background-color: #fff;
+  border: double 7px #070133;
+  outline: solid 4px #070133;
+  padding: 1rem;
+  position: fixed;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  p{
+    font-family: 'retro';
+    color: #070133;
+    font-size: 1.3rem;
+  }
+}
+
+#talk-to-me{
+  cursor: pointer;
+}
+
+@keyframes openbubble{
+  0%    {transform: scaleX(.07) scaleY(.07);}
+  35%   {transform: scaleX(1) scaleY(.07);}
+  100%  {transform: scaleX(1) scaleY(1);}
+}
+
+@keyframes closebubble{
+  0%    {transform: scaleX(1) scaleY(1);}
+  65%   {transform: scaleX(1) scaleY(.07);}
+  100%  {transform: scaleX(.07) scaleY(.07);}
+}
+
+#speech-bubble.open{
+  animation: openbubble .3s ease-in-out;
+  transform: scaleX(1) scaleY(1);
+}
+
+#speech-bubble.close{
+  animation: closebubble .3s ease-in-out;
+  transform: scaleX(0) scaleY(0);
+}
+
+@media screen and (min-width: 116.26em){
+  #speech-bubble{
+    bottom: 25%;
+    right: 15%;
+  }
+}
+
+@media screen and (max-width: 116.25em){
+  #speech-bubble{
+    bottom: 55%;
+  }
+}
+
+// @media screen and (max-width: 68.875em){
+//   #speech-bubble{
+//     top: 5%;
+//   }
+// }
+
+@media screen and (max-width: 32em){
+  #speech-bubble{
+    top: 0%;
+    width: 90%;
+    height: 50vh;
+    max-height: 100%;
+    min-height: 0;
+    margin: 0 auto;
+  }
+}

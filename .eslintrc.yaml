@@ -1,0 +1,12 @@
+# .eslintrc.yaml
+---
+  extends: poly-site
+  env:
+    node: true
+    mocha: true
+    es5: true
+  parser: typescript-eslint-parser
+  parserOptions:
+    sourceType: module
+    ecmaFeatures:
+      modules: true

@@ -1,0 +1,7 @@
+### gitignore ###
+
+#ignore all node modules
+node_modules/
+
+#ignore the production folder
+dist/
