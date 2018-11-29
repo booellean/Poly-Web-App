@@ -26,7 +26,7 @@
 	<body>
 		<div  id="scanlines" aria-hidden="true"></div>
     <main>
-			<h1 aria-valuetext="Poly entertainment" tabindex="0">
+			<h1 aria-label="Poly entertainment" tabindex="0">
 					<svg id="poly-site" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 202.08791 27.66922">
 						<g>
 							<path d="M159.90111,17.00181v6.24846h-1.85952V16.99981l-.63081-.03211v-.60148h-1.26421V15.11115h-3.13794v8.14306h-.63106l-.03055-.59577h-.60151v-7.571h-.64792l.00964.01025v-.63947h-.63949l.00977.00975v-.63947H149.838l.00977.00976v-.63947h-.63949l.01019.0096v-.61224H142.927V23.25252h-1.8781v-11.299h.59381v-.61768h7.56077v.59652h1.88043l.0334.6248h.60142v-.60877h1.2638v-.60919h4.40108l.0308.59806h1.86216v.61886l.634.03282v.60255h.63422v1.26383h.62251v1.25254h.6116v7.54686h-1.21792V16.982c-.2407.01052-.45394.01984-.66678.02868.00039-.63564.00039-1.27081.00039-1.92969h-.5925l-.02978-.61166h-1.24683l0-.6297-.6297,0v-.61937l-.60864-.03645-.03232-.58811h-3.75747v.611l-.61249,0v1.22974h.60246V13.19653q1.90351-.011,3.80664-.02154c-.00039.2143-.00039.42813-.00039.65469h.61217v.62971h.62971v1.2778h1.26139v1.22725Z"/>
@@ -64,9 +64,6 @@
 					</svg>
 			</h1>
 			<div  id="loading-bar"
-						role="alertdialog"
-						aria-busy="true"
-						aria-live="assertive"
 						tabindex="0">
 				<div id="load-fill" aria-hidden="true"></div>
 				<div id="animate-blocks-container" aria-hidden="true">
@@ -87,5 +84,6 @@
       let testBar = new loadBar(endDate, startDate, '#load-fill', 1000);
 		</script>
 		<script src="js/script.min.js"></script>
+		<script src="js/service_worker.min.js"></script>
 	</body>
 </html>
