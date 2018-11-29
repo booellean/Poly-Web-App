@@ -39,7 +39,7 @@ h1{
   svg{
     padding: 2%;
     width: 100vw;
-    height: auto;
+    max-height: 20vh;
     max-width: 35em;
     cursor: pointer;
     path{
@@ -61,6 +61,7 @@ h3{
   color: #fff;
   text-align: center;
   line-height: 2em;
+  font-size: 2.7vh;
 }
 #scanlines{
   z-index: 100;
@@ -89,7 +90,7 @@ h3{
 #load-fill{
   width: 0%;
   transition: width .2s linear;
-  height: 2em;
+  height: 3.5vh;
   background-color: #fff;
 }
 
@@ -198,6 +199,7 @@ h3{
 
 #talk-to-me{
   cursor: pointer;
+  height: 55vh;
 }
 
 @keyframes openbubble{
