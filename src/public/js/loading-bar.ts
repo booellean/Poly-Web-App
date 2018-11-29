@@ -42,7 +42,7 @@ class loadBar{
     // console.log(this.progressResults);
     this.barItem.style.width = `${this.progressResults}%`;
 
-    document.querySelector('#loading-bar').setAttribute('aria-title', `This is a loading bar. The progress percentage until launch is ${Math.floor(this.progressResults)}%`);
+    document.querySelector('#loading-bar').setAttribute('aria-label', `This is a loading bar. The progress percentage until launch is ${Math.floor(this.progressResults)}%`);
   }
 
 }
