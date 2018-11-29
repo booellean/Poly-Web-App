@@ -1,0 +1,39 @@
+{
+  "name": "Poly entertainment",
+  "version": "0.1.1",
+  "short_name": "Poly e",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#fff",
+  "theme_color": "#461ca4",
+  "description": "Poly entertainment app, for keeping up to date with all our adventures.",
+  "icons": [{
+    "src": "img/logo-120.png",
+    "sizes": "120x120",
+    "type": "image/png"
+  }, {
+    "src": "img/logo-128.png",
+    "sizes": "128x128",
+    "type": "image/png"
+  }, {
+    "src": "img/logo-152.png",
+    "sizes": "152x152",
+    "type": "image/png"
+  }, {
+    "src": "img/logo-167.png",
+    "sizes": "167x167",
+    "type": "image/png"
+  }, {
+    "src": "img/logo-180.png",
+    "sizes": "180x180",
+    "type": "image/png"
+  }, {
+    "src": "img/logo-192.png",
+    "sizes": "192x192",
+    "type": "image/png"
+  }, {
+    "src": "img/logo-512.png",
+    "sizes": "512x512",
+    "type": "image/png"
+  }]
+}
