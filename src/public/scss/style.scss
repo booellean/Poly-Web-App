@@ -1,12 +1,14 @@
 
 @font-face {
   font-family: "8-bit";
-  src: url('../fonts/PressStart2P.ttf') format("truetype");
+  font-display: auto;
+  src: local('8-bit'), url('../fonts/PressStart2P.ttf') format("truetype");
 }
 
 @font-face {
   font-family: "retro";
-  src: url('../fonts/VCR.ttf') format("truetype");
+  font-display: auto;
+  src: local('retro'), url('../fonts/VCR.ttf') format("truetype");
 }
 
 * {
@@ -57,6 +59,7 @@ h1:hover{
 }
 
 h3{
+  font-family: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
   font-family: '8-bit';
   color: #fff;
   text-align: center;
@@ -191,6 +194,7 @@ h3{
   align-items: center;
   align-content: center;
   p{
+    font-family: Arial, Helvetica, sans-serif;
     font-family: 'retro';
     color: #070133;
     font-size: 2.2vh;
