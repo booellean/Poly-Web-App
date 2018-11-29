@@ -22,16 +22,16 @@ self.addEventListener('install', (e) =>{
   e.waitUntil(
     caches.open(staticCache).then( (cache) =>{
       return cache.addAll([
-        'index.html',
-        'manifest.json',
-        '/js/script.min.js',
-        '/js/loading-bar.min.js',
-        '/js/service_worker.min.js',
-        '/css/style.min.css',
-        '/img/8-bit-border.png',
-        '/img/scanlines.png',
-        '/img/idle.gif',
-        '/img/logo-120.png'
+        './index.html',
+        './manifest.json',
+        './js/script.min.js',
+        './js/loading-bar.min.js',
+        './js/service_worker.min.js',
+        './css/style.min.css',
+        './img/8-bit-border.png',
+        './img/scanlines.png',
+        './img/idle.gif',
+        './img/logo-120.png'
       ]);
     })
   );
