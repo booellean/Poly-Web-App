@@ -3,6 +3,8 @@ import * as express from 'express';
 import {Request, Response} from "express";
 //body Parser
 import * as bodyParser from "body-parser";
+//mongoose
+import * as mongoose from "mongoose";
 //Routes imported
 import { HomeRoutes } from './routes/homeRoutes';
 import { BlogRoutes } from './routes/blogRoutes';
@@ -12,14 +14,21 @@ class App {
   public app: express.Application;
   public homeRoute: HomeRoutes = new HomeRoutes();
   public blogRoute: BlogRoutes = new BlogRoutes();
+  public mongoUrl: string = 'mongodb://localhost/polyDB';
 
   constructor () {
     this.app = express();
     this.config();
     this.homeRoute.homeRoutes(this.app);
     this.blogRoute.blogRoutes(this.app);
+    this.mongoSetup();
 
     // this.mountRoutes();
+  }
+
+  private mongoSetup(): void{
+    mongoose.Promise = global.Promise;
+    mongoose.connect(this.mongoUrl);
   }
 
   // private mountRoutes (): void {
