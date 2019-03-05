@@ -29,5 +29,8 @@ export const BlogSchema = new Schema({
   },
   postTags: {
     type: Array
+  },
+  postTitle: {
+    type: String
   }
 })
