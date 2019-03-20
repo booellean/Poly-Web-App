@@ -5,3 +5,6 @@ node_modules/
 
 #ignore the production folder
 dist/
+
+#ignore this new expo folder that shouldn't be here in the first place
+.expo
