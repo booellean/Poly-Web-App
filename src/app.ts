@@ -14,7 +14,7 @@ class App {
   public app: express.Application;
   public homeRoute: HomeRoutes = new HomeRoutes();
   public blogRoute: BlogRoutes = new BlogRoutes();
-  public mongoUrl: string = 'mongodb://localhost/polyDB';
+  public mongoUrl: string = 'mongodb://localhost:27017/polyDB';
 
   constructor () {
     this.app = express();
