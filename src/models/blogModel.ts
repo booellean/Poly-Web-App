@@ -33,4 +33,7 @@ export const BlogSchema = new Schema({
   postTitle: {
     type: String
   }
-})
+},
+{
+  collection: 'blogPosts'
+});
