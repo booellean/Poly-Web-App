@@ -3,6 +3,9 @@ import * as mongoose from 'mongoose';
 const Schema = mongoose.Schema;
 
 export const BlogSchema = new Schema({
+  _id: {
+    type: mongoose.ObjectId
+  },
   authorAlias: {
     type: String
   },
