@@ -40,7 +40,7 @@ export class BlogController{
 
   //For Individual Blog Posts
   public getBlogPostID (req: Request, res: Response) {
-    Post.findById(req.params.contactId, (err, post) => {
+    Post.findById(req.params.postId, (err, post) => {
         if(err){
             res.send(err);
         }
@@ -49,7 +49,7 @@ export class BlogController{
   }
 
   public updateBlogPost (req: Request, res: Response) {
-    Post.findOneAndUpdate({ _id: req.params.contactId }, req.body, { new: true }, (err, post) => {
+    Post.findOneAndUpdate({ _id: req.params.postId }, req.body, { new: true }, (err, post) => {
         if(err){
             res.send(err);
         }
@@ -58,7 +58,7 @@ export class BlogController{
   }
 
   public deleteBlogPost (req: Request, res: Response) {
-    Post.remove({ _id: req.params.contactId }, (err, post) => {
+    Post.remove({ _id: req.params.postId }, (err, post) => {
         if(err){
             res.send(err);
         }
