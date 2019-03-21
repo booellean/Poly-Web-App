@@ -18,7 +18,19 @@ export class BlogController{
   }
 
   public getBlogPosts (req: Request, res: Response) {
-    Post.find({}, (err, post) => {
+    let pgNo = parseInt(req.query.pgNo);
+    let size = 5;
+    let query = {};
+
+    if(pgNo < 0 || pgNo === 0) {
+        res = {"error" : true,"message" : "invalid page number, should start with 1"};
+        return res.json(res)
+    }
+
+    query.skip = size *(pgNo -1);
+    query.limit  = size;
+
+    Post.find({}, {}, query, (err, post) => {
         if(err){
             res.send(err);
         }
