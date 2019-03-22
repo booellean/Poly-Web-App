@@ -6,6 +6,9 @@ export const BlogSchema = new Schema({
   _id: {
     type: mongoose.ObjectId
   },
+  id: {
+    type: String
+  },
   authorAlias: {
     type: String
   },

@@ -23,8 +23,8 @@ export class BlogController{
     let query = {};
 
     if(pgNo < 0 || pgNo === 0) {
-        res = {"error" : true,"message" : "invalid page number, should start with 1"};
-        return res.json(res)
+        res = {"error" : true, "message" : "invalid page number, should start with 1"};
+        return res.json(res);
     }
 
     query.skip = size *(pgNo -1);
@@ -40,12 +40,21 @@ export class BlogController{
 
   //For Individual Blog Posts
   public getBlogPostID (req: Request, res: Response) {
-    Post.findById(req.params.postId, (err, post) => {
+    let query = {};
+    // query.or([{id: req.params.postId}, {_id: req.params.postId}]);
+
+    // Post.findById(req.params.postId, (err, post) => {
+    //   if(err){
+    //       res.send(err);
+    //   }
+    //   res.json(post);
+    // })
+      Post.find( {$or: [{id: req.params.postId}, {_id: req.params.postId}] }, (err, post) => {
         if(err){
             res.send(err);
         }
         res.json(post);
-    });
+      }).limit(1);
   }
 
   public updateBlogPost (req: Request, res: Response) {
