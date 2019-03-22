@@ -10,8 +10,11 @@ export class HomeRoutes {
   public homeRoutes(app): void {
     app.route('/')
     .get((req: Request, res: Response) =>{
-      res.status(200).sendFile(
-        'index.html', {root: __dirname + '/../public'}
+      // res.status(200).sendFile(
+      //   'index.html', {root: __dirname + '/../public'}
+      // )
+      res.status(200).render(
+        'index.ejs'
       )
     })
   }

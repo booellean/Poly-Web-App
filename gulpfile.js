@@ -77,8 +77,15 @@ gulp.task('build', ()=>{
     .pipe(gulp.dest('./dist/public/fonts/'))
 })
 
+//copy over all files that will not need to be changed
+gulp.task('transfer', ()=>{
+  return gulp.src('./src/views/*')
+    .pipe(gulp.dest('./dist/views/'))
+})
+
 gulp.task('watch', function () {
   gulp.watch('./src/public/scss/**/*.scss', ['sass']);
-  gulp.watch('./src/**/*.html', ['html-min']);
+  // gulp.watch('./src/**/*.html', ['html-min']);
   gulp.watch('./dist/public/js/**/*.js', ['uglify']);
+  gulp.watch('./src/views/**/*.ejs', ['transfer']);
 });

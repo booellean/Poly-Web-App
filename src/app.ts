@@ -46,6 +46,8 @@ class App {
 
   private config(): void{
     this.app.use(express.static(__dirname + '/public'));
+    this.app.set('view engine', 'ejs');
+    this.app.set('views', __dirname + '/views');
     this.app.use(bodyParser.json());
     this.app.use(bodyParser.urlencoded({ extended: false }));
   }
