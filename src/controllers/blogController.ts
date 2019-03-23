@@ -30,11 +30,11 @@ export class BlogController{
     query.skip = size *(pgNo -1);
     query.limit  = size;
 
-    Post.find({}, {}, query, (err, post) => {
+    Post.find({}, {}, query, (err, posts) => {
         if(err){
             res.send(err);
         }
-        res.json(post);
+        res.render('blog.ejs',{ posts });
     });
   }
 
