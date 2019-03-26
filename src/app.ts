@@ -45,9 +45,9 @@ class App {
   // }
 
   private config(): void{
-    this.app.use(express.static(__dirname + '/themes/base-theme/public'));
+    this.app.use(express.static(__dirname + '/public/themes/base-theme/public'));
     this.app.set('view engine', 'ejs');
-    this.app.set('views', __dirname + '/themes/base-theme/views');
+    this.app.set('views', __dirname + '/public/themes/base-theme/views');
     this.app.use(bodyParser.json());
     this.app.use(bodyParser.urlencoded({ extended: false }));
   }
