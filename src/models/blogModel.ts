@@ -4,42 +4,29 @@ const Schema = mongoose.Schema;
 
 export const BlogSchema = new Schema({
   _id: {
-    type: mongoose.ObjectId
+    type: mongoose.Types.ObjectId
   },
-  id: {
+  title: {
     type: String
   },
-  authorAlias: {
-    type: String
+  authorId: {
+    type: mongoose.Types.ObjectId
   },
-  authorName: {
-    type: String
-  },
-  authorEmail: {
-    type: String
-  },
-  postCategory: {
+  category: {
     type: Array,
     default: ['development']
   },
-  postContent:{
+  content:{
     type: String
   },
-  postDate: {
+  date: {
     type: Date,
     default: Date.now
   },
-  postImage: {
-    type: String,
-    default: `<img src="cool-cat.png>"`
-  },
-  postTags: {
+  tags: {
     type: Array
-  },
-  postTitle: {
-    type: String
   }
 },
 {
-  collection: 'blogPosts'
+  collection: 'posts'
 });

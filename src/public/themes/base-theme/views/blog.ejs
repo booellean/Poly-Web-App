@@ -1,12 +1,13 @@
-
-<% let URI = window.location.href.split('?')[0]; %>
 <%- include('head') -%>
 <%- include('splash-header') -%>
-<% posts.forEach( (post) =>{ %>
+
+<% //Generate Post Content
+posts.forEach( (post) =>{ %>
   <article id="<%= post._id %>">
-    <h2><a href="blog/<%= post._id %>" target="_self"><%= post.postTitle %></a></h2>
-    <cite><%= post.authorName %></cite>
-    <time><%=  post.postDate %></time>
+    <h2><a href="blog/<%= post._id %>" target="_self"><%= post.title %></a></h2>
+    <cite><%= post.authorId %></cite>
+    <time><%=  post.date %></time>
   </article>
 <% }) %>
+
 <%- include('splash-footer') -%>

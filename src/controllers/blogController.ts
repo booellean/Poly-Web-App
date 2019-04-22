@@ -20,7 +20,7 @@ export class BlogController{
   public getBlogPosts (req: Request, res: Response) {
     let pgNo = parseInt(req.query.pgNo);
     let size = 5;
-    let query = {};
+    let query= {};
 
     if(pgNo < 0 || pgNo === 0) {
         res = {"error" : true, "message" : "invalid page number, should start with 1"};
@@ -40,7 +40,7 @@ export class BlogController{
 
   //For Individual Blog Posts
   public getBlogPostID (req: Request, res: Response) {
-    Post.findById(req.params.contactId, (err, post) => {
+    Post.findById(req.params.postId, (err, post) => {
 
         if(err){
             res.send(err);
@@ -50,7 +50,7 @@ export class BlogController{
   }
 
   public updateBlogPost (req: Request, res: Response) {
-    Post.findOneAndUpdate({ _id: req.params.contactId }, req.body, { new: true }, (err, post) => {
+    Post.findOneAndUpdate({ _id: req.params.postId }, req.body, { new: true }, (err, post) => {
         if(err){
             res.send(err);
         }
@@ -59,11 +59,11 @@ export class BlogController{
   }
 
   public deleteBlogPost (req: Request, res: Response) {
-    Post.remove({ _id: req.params.contactId }, (err, post) => {
+    Post.remove({ _id: req.params.postId }, (err, post) => {
         if(err){
             res.send(err);
         }
-        res.json({ message: 'Successfully deleted the blog post!'});
+        res.json({post, message: 'Successfully deleted the blog post!'});
     });
 }
 }
