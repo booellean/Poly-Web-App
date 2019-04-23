@@ -1,13 +1,11 @@
-<%- include('head') -%>
-<%- include('splash-header') -%>
-
+<%- include('header') -%>
 <% //Generate Post Content
 posts.forEach( (post) =>{ %>
   <article id="<%= post._id %>">
     <h2><a href="blog/<%= post._id %>" target="_self"><%= post.title %></a></h2>
-    <cite><%= post.authorId %></cite>
+    <cite data-name="<%= post.authorId %>"><%= post.authorId %></cite>
     <time><%=  post.date %></time>
   </article>
 <% }) %>
-
-<%- include('splash-footer') -%>
+<%- include('footer') -%>
+<%- include('script') -%>

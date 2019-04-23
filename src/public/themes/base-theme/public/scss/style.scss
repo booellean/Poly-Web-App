@@ -27,8 +27,7 @@ html, body{
   min-width: 100vw;
 }
 
-main {
-  background-color: #461ca4;
+#splash, #main {
   display: flex;
   flex-flow: column nowrap;
   justify-content: space-between;
@@ -37,8 +36,18 @@ main {
   min-height: 100vh;
 }
 
+#splash{
+  background-color: #461ca4;
+}
+
+main{
+  display: inline-flex;
+  height: 100%;
+  width: 100%;
+}
+
 h1{
-  svg{
+  #poly-site-splash{
     padding: 2%;
     width: 100vw;
     max-height: 20vh;
@@ -51,7 +60,7 @@ h1{
   }
 }
 h1:hover{
-  svg{
+  #poly-site-splash{
     path{
       fill: #66c7f4;
     }
