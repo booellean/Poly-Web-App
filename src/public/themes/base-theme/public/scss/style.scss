@@ -31,19 +31,24 @@ html, body{
   display: flex;
   flex-flow: column nowrap;
   justify-content: space-between;
-  align-content: center;
-  align-items: center;
   min-height: 100vh;
 }
 
 #splash{
   background-color: #461ca4;
+  align-content: center;
+  align-items: center;
 }
 
 main{
-  display: inline-flex;
+  display: block;
+  flex-grow: 1;
   height: 100%;
   width: 100%;
+}
+
+#header, #footer{
+  flex-grow: 0;
 }
 
 h1{
