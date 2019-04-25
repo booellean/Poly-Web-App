@@ -4,6 +4,9 @@ import { Request, Response } from 'express';
 
 const Post = mongoose.model('Post', BlogSchema);
 
+
+//TODO: send response parameter to communicate with dashboard.ejs file
+
 export class BlogController{
   //For all Blog Posts
   public addBlogPost (req: Request, res: Response) {

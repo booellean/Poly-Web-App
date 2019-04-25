@@ -3,6 +3,8 @@ import {Request, Response} from "express";
 
 import { BlogController } from "../controllers/blogController";
 
+//TODO: Edit routes to work with the dashboard
+
 export class BlogRoutes {
   public express
   public blogController: BlogController = new BlogController();
