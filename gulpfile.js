@@ -1,5 +1,7 @@
 'use strict';
 
+//TODO: create function that can detect all files in theme directories and minify for theme....
+
 const gulp = require('gulp');
 const rename = require("gulp-rename");
 const sass = require('gulp-sass');
@@ -65,10 +67,14 @@ gulp.task('html-min', ()=> {
 
 //uglify all javascript that has been compiled from our tsconfig.json, and suffix it .min
 gulp.task('uglify', ()=> {
-  return gulp.src('./dist/public/themes/base-theme/public/js/*.js')
+  return gulp.src([
+    './dist/public/themes/base-theme/public/js/*.js',
+    './dist/public/themes/base-theme/public/*.js'
+  ])
     .pipe(uglify())
     .pipe(rename({ suffix: ".min", }))
     .pipe(gulp.dest('./dist/public/themes/base-theme/public/js/'))
+    .pipe(gulp.dest('./dist/public/themes/base-theme/public/'))
 });
 
 //copy over all files that don't have to be minified or altered in any way, i.e. fonts
@@ -79,13 +85,16 @@ gulp.task('build', ()=>{
 
 //copy over all files that will not need to be changed
 gulp.task('transfer', ()=>{
-  return gulp.src('./src/public/themes/base-theme/views/*')
-    .pipe(gulp.dest('./dist/public/themes/base-theme/views/'))
+  return gulp.src([
+    './src/views/admin/*',
+    './src/views/themes/base-theme/*'])
+    .pipe(gulp.dest('./dist/views/admin/*'))
+    .pipe(gulp.dest('./dist/views/themes/base-theme/*'))
 })
 
 gulp.task('watch', function () {
   gulp.watch('./src/public/themes/base-theme/public/scss/**/*.scss', ['sass']);
   // gulp.watch('./src/**/*.html', ['html-min']);
   gulp.watch('./dist/public/themes/base-theme/public/js/**/*.js', ['uglify']);
-  gulp.watch('./src/public/themes/base-theme/views/**/*.ejs', ['transfer']);
+  gulp.watch('./src/views/**/*.ejs', ['transfer']);
 });

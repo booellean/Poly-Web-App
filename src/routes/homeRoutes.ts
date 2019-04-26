@@ -14,7 +14,7 @@ export class HomeRoutes {
       //   'index.html', {root: __dirname + '/../public'}
       // )
       res.status(200).render(
-        'index.ejs'
+        `index.ejs`
       )
     })
   }

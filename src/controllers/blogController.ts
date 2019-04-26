@@ -4,7 +4,6 @@ import { Request, Response } from 'express';
 
 const Post = mongoose.model('Post', BlogSchema);
 
-
 //TODO: send response parameter to communicate with dashboard.ejs file
 
 export class BlogController{
@@ -37,7 +36,7 @@ export class BlogController{
         if(err){
             res.send(err);
         }
-        res.render('blog.ejs',{ posts });
+        res.render(`blog.ejs`,{ posts });
     });
   }
 
