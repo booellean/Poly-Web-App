@@ -84,17 +84,17 @@ gulp.task('build', ()=>{
 })
 
 //copy over all files that will not need to be changed
-gulp.task('transfer', ()=>{
+gulp.task('ejs', ()=>{
   return gulp.src([
-    './src/views/admin/*',
-    './src/views/themes/base-theme/*'])
-    .pipe(gulp.dest('./dist/views/admin/*'))
-    .pipe(gulp.dest('./dist/views/themes/base-theme/*'))
+    './src/views/admin/*.ejs',
+    './src/views/themes/base-theme/*.ejs'])
+    .pipe(gulp.dest('./dist/views/admin/'))
+    .pipe(gulp.dest('./dist/views/themes/base-theme/'))
 })
 
 gulp.task('watch', function () {
   gulp.watch('./src/public/themes/base-theme/public/scss/**/*.scss', ['sass']);
   // gulp.watch('./src/**/*.html', ['html-min']);
   gulp.watch('./dist/public/themes/base-theme/public/js/**/*.js', ['uglify']);
-  gulp.watch('./src/views/**/*.ejs', ['transfer']);
+  gulp.watch('./src/views/**/*.ejs', ['ejs']);
 });
