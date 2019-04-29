@@ -50,7 +50,7 @@ class App {
   // }
 
   private config(): void{
-    this.app.use(express.static(__dirname + `/public/${mainRoute}/public`));
+    this.app.use(express.static(__dirname));
     this.app.set('view engine', 'ejs');
     this.app.set('views', [__dirname + `/views/admin`, __dirname + `/views/${mainRoute}`]);
     this.app.use(bodyParser.json());
