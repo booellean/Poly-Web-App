@@ -87,9 +87,9 @@ gulp.task('build', ()=>{
 gulp.task('ejs', ()=>{
   return gulp.src([
     './src/views/admin/*.ejs',
-    './src/views/themes/base-theme/*.ejs'])
+    './src/public/themes/base-theme/views/*.ejs'])
     .pipe(gulp.dest('./dist/views/admin/'))
-    .pipe(gulp.dest('./dist/views/themes/base-theme/'))
+    .pipe(gulp.dest('./dist/public/themes/base-theme/views/'))
 })
 
 gulp.task('watch', function () {

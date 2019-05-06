@@ -50,9 +50,10 @@ class App {
   // }
 
   private config(): void{
-    this.app.use(express.static(__dirname));
+    this.app.use(express.static(__dirname + `/public/${mainRoute}/public/`));
+    this.app.use('admin', express.static(__dirname + `/views/public/`));
     this.app.set('view engine', 'ejs');
-    this.app.set('views', [__dirname + `/views/admin`, __dirname + `/views/${mainRoute}`]);
+    this.app.set('views', [__dirname + `/views/admin`, __dirname + `/public/${mainRoute}/views/`]);
     this.app.use(bodyParser.json());
     this.app.use(bodyParser.urlencoded({ extended: false }));
   }

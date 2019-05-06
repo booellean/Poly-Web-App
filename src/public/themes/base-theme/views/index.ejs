@@ -1,0 +1,23 @@
+<%- include('splash-header') -%>
+<div  id="loading-bar"
+      tabindex="0">
+  <div id="load-fill" aria-hidden="true"></div>
+  <div id="animate-blocks-container" aria-hidden="true">
+    <div class="block" aria-hidden="true"></div>
+    <div class="block" aria-hidden="true"></div>
+  </div>
+</div>
+<h3 tabindex="0">Coming Soon
+  <br>
+    August 30, 2019</h3>
+<img src="img/idle.gif" alt="An animated gif of myself, standing around, smiling, and waiting" id="talk-to-me" tabindex="0">
+<article id="speech-bubble" aria-label="Press space to talk to me, press any other key to exit!" tabindex="0"><p id="conversation"></p></article>
+</div>
+<script src="js/loading-bar.min.js"></script>
+<script type="text/javascript">
+  let endDate = new Date('30-Aug-2019 00:00:35');
+  let startDate = new Date('23-Nov-2018 00:57:35');;
+  let testBar = new loadBar(endDate, startDate, '#load-fill', 1000);
+</script>
+<script src="js/script.min.js"></script>
+<%- include('script') -%>
