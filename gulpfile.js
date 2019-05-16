@@ -153,13 +153,13 @@ allTransfers.forEach( (option) =>{
 gulp.task('watch', function () {
   //Build watch tasks for every destination
   watchJsRoutes.forEach( (option) =>{
-    gulp.watch(option.name, [option.route]);
+    gulp.watch(option.route, [option.name]);
   });
   watchScssRoutes.forEach( (option) =>{
-    gulp.watch(option.name, [option.route]);
+    gulp.watch(option.route, [option.name]);
   });
   watchTransferRoutes.forEach( (option) =>{
-    gulp.watch(option.name, [option.route]);
+    gulp.watch(option.route, [option.name]);
   });
 });
 
