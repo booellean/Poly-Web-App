@@ -3,7 +3,7 @@
 * @returns {string} scope of the service worker
 */
 
-window.onload = () =>{
+window.onload = function(){
   if(!navigator.serviceWorker){return};
 
   navigator.serviceWorker.register('./sw.js')
@@ -12,5 +12,5 @@ window.onload = () =>{
     scope: './'
     //TODO: create functions for reg.waiting and reg.installing to notify users of updates
   })
-  .catch(err => {throw err});
+  .catch(function(err) { throw err });
 }

@@ -8,3 +8,7 @@ dist/
 
 #ignore this new expo folder that shouldn't be here in the first place
 .expo
+
+#ignore js mapped in src file
+src/**/*.js
+src/**/*.js.map

@@ -44,7 +44,7 @@ const closeSpeech = ()=> {
 }
 
 window.addEventListener('load', checkStatus);
-document.querySelector('#poly-site').addEventListener('click', generateSpeech);
+document.querySelector('#poly-site-splash').addEventListener('click', generateSpeech);
 document.querySelector('#talk-to-me').addEventListener('click', generateSpeech);
 document.querySelector('#speech-bubble').addEventListener('click', closeSpeech);
 window.addEventListener('keydown', checkKey);
