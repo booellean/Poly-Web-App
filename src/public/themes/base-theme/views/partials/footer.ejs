@@ -1,32 +1,9 @@
 </main>
 <footer id="footer">
-  <small>&copy; Poly entertainment</small>
+  <small aria-label="Copyright Poly entertainment" tab-focus="0"><span>&copy; </span><%- include('company-svg-smooth-path') -%></small>
 
-  <nav id="social-footer-nav">
-    <ul>
-      <li>
-        <a href="#github">github</a>
-      </li>
-      <li>
-        <a href="#itch.io">itch.io</a>
-      </li>
-      <li>
-        <a href="#twitter">twitter</a>
-      </li>
-      <li>
-        <a href="#instagram">instagram</a>
-      </li>
-    </ul>
-  </nav>
-
-  <form id="contact-author">
-    <label for="form-name">Name: <input type="text" id="form-name"/></label>
-    <label for="form-email">Email: <input type="email" id="form-email"/></label>
-    <label for="form-tel">Telephone: <input type="tel" id="form-tel"/></label>
-    <label for="form-textarea">Message:</label>
-      <textarea id="form-textarea">
-      </textarea>
-  </form>
+  <%- include('footer-social') -%>
+  <%- include('footer-form') -%> 
 
 </footer>
 </div>

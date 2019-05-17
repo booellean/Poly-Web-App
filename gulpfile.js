@@ -58,6 +58,16 @@ const adminTransfer = [
     name : 'adminEjsPartials',
     src : './src/views/partials/*.ejs',
     dest : './dist/views/partials/',
+  },
+  {
+    name : 'fontAwesomeFonts',
+    src : './node_modules/font-awesome/fonts/*',
+    dest : './assets/font-awesome/fonts/',
+  },
+  {
+    name : 'fontAwesomeCss',
+    src : './node_modules/font-awesome/css/*',
+    dest : './assets/font-awesome/css/',
   }
 ];
 

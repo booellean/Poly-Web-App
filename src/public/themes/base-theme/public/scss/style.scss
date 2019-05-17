@@ -18,6 +18,7 @@ $theme-color : #461ca4;
 $theme-white : #f8f9f2;
 $theme-hover : #66c7f4;
 $theme-dark-purp : #070133;
+$theme-focus: #e52d6b;
 
 * {
   box-sizing: border-box;
@@ -64,23 +65,34 @@ main{
   flex-grow: 0;
 }
 
-h1{
-  #poly-site-splash{
-    padding: 2%;
-    width: 100vw;
-    max-height: 20vh;
-    max-width: 35em;
-    cursor: pointer;
-    path{
-      fill: $theme-white;
-        transition: filter .1s linear, fill .1s linear;
+#splash{
+  header{
+    h1 {
+      svg {
+        padding: 2%;
+        width: 100vw;
+        max-height: 20vh;
+        max-width: 35em;
+        cursor: pointer;
+        path {
+          fill: $theme-white;
+            transition: filter .1s linear, fill .1s linear;
+        }
+      }
     }
-  }
-}
-h1:hover{
-  #poly-site-splash{
-    path{
-      fill: $theme-hover;
+    h1:hover {
+      svg {
+        path {
+          fill: $theme-hover;
+        }
+      }
+    }
+    h1:focus {
+      svg {
+        path {
+          fill: $theme-focus;
+        }
+      }
     }
   }
 }
@@ -283,40 +295,40 @@ h3{
 /***************************** Main Page Stylings *****************************/
 /******************************************************************************/
 
-h1{
-  #poly-site{
-    width: 10em;
-    max-height: 20vh;
-    cursor: pointer;
-    path{
-      fill: $theme-color;
-        transition: filter .1s linear, fill .1s linear;
-    }
-  }
-}
-h1:hover{
-  #poly-site{
-    path{
-      fill: $theme-hover;
-    }
-  }
-}
-
-#header {
-  padding: .5em;
-  display: flex;
-  flex-flow: row nowrap;
-  align-items: center;
-  justify-content: space-between;
-}
-
-#footer {
-  background: $theme-color;
-  padding: .75em;
-}
-
 #main {
   background: linear-gradient(to right, rgba(29, 20, 29, .1),  rgba(29, 20, 29, 0),  rgba(29, 20, 29, 0), rgba(29, 20, 29, 0), rgba(29, 20, 29, 0),  rgba(29, 20, 29, 0), rgba(29, 20, 29, 0),  rgba(29, 20, 29, .1)); 
+  #header {
+    padding: .5em;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+    h1 {
+      svg {
+        width: 10em;
+        max-height: 20vh;
+        cursor: pointer;
+        path{
+          fill: $theme-color;
+            transition: filter .1s linear, fill .1s linear;
+        }
+      }
+    }
+    h1:hover {
+      svg{
+        path{
+          fill: $theme-hover;
+        }
+      }
+    }
+    h1:focus {
+      svg{
+        path{
+          fill: $theme-focus;
+        }
+      }
+    }
+  }
 }
 
 main {
@@ -337,7 +349,108 @@ main {
         font-family: Arial, Helvetica, sans-serif;
         font-family: 'retro';
         text-align: right;
-        font-size: 1.2em;
+        font-size: 1.2rem;
+      }
+    }
+  }
+}
+
+#footer {
+  background: $theme-color;
+  padding: 2em .75em 0 .75em;
+  display: flex;
+  flex-flow: row wrap;
+  small{
+    width: 90%;
+    color: $theme-white;
+    display: flex;
+    flex-flow: row nowrap;
+    height: auto;
+    align-items: flex-start;
+    order: 3;
+    span{
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+    #poly-site-smooth{
+      display: inline-block;
+      height: 2em;
+      path{
+        fill: $theme-white;
+      }
+    }
+  }
+  form {
+    width: 90%;
+    padding: 0 2em;
+    color: $theme-white;
+    button {
+      padding: .5em;
+      font-size: 1.2rem;
+      background: $theme-white;
+      margin: 1em 0;
+    }
+    fieldset{
+      width: 90%;
+      max-width: 60em;
+      display: flex;
+      flex-flow: column nowrap;
+      border: none;
+      legend{
+        font-size: 2rem;
+        padding: 0 0 .5em 0
+      }
+      label{
+        width: 100%;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        align-items: center;
+        padding: .5em 0 .5em .5em;
+        font-size: 1.2rem;
+        span{
+          width: 20%;
+          font-size: 1.2rem;
+        }
+        input{
+          width: 80%;
+          font-size: 1.2rem;
+          padding: .5em .25em;
+        }
+      }
+      textarea{
+        width: 100%;
+        min-height: 20em;
+        font-size: 1.4rem;
+        padding: 1em;
+        resize: vertical;
+      }
+    }
+  }
+}
+
+#social-footer-nav{
+  width: 10%;
+  order: 2;
+  ul{
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    li{
+      text-decoration: none;
+      list-style: none;
+      a{
+        color: $theme-white;
+        i{
+          font-size: 2rem;
+          padding: 0 .5em 1em .5em;
+        }
+      }
+      a:hover {
+        color: $theme-hover;
+      }
+      a:focus {
+        color: $theme-focus;
       }
     }
   }

@@ -50,7 +50,6 @@
     "ejs": "^2.6.1",
     "eslint": "^5.9.0",
     "express": "^4.16.4",
-    "font-awesome": "^4.4.0",
     "froala-editor": "^2.9.5",
     "gulp-htmlmin": "^5.0.1",
     "jquery": "^3.4.1",
@@ -60,6 +59,7 @@
     "typescript-eslint-parser": "^21.0.1"
   },
   "devDependencies": {
+    "font-awesome": "^4.7.0",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^6.0.0",
     "gulp-csso": "^3.0.1",

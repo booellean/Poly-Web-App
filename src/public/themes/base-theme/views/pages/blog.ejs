@@ -15,7 +15,7 @@ let dateOptions = {
 // Generate Post Content
 posts.forEach( (post) =>{ %>
   <article id="<%= post._id %>">
-    <img src="assets/<%= post.author.alias %>/<%= post.img.fp %>/<%= post.img.name %>.<%= post.img.suffix %>" />
+    <img src="assets/users/<%= post.author.alias %>/<%= post.img.fp %>/<%= post.img.name %>.<%= post.img.suffix %>" />
     <h2><a href="blog/<%= post._id %>" target="_self"><%= post.title %></a></h2>
     posted on <time data-time="<%= post.date %>"><%= new Intl.DateTimeFormat('en-US', dateOptions).format(post.date) %></time><br>
     <cite data-name="<%= post.author.name %>">by <%= post.author.alias %></cite>
