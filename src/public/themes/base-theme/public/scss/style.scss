@@ -1,3 +1,6 @@
+/******************************************************************************/
+/****************** Variables to be included in all Sheets ********************/
+/******************************************************************************/
 
 @font-face {
   font-family: "8-bit";
@@ -11,6 +14,11 @@
   src: local('retro'), url('../fonts/VCR.ttf') format("truetype");
 }
 
+$theme-color : #461ca4;
+$theme-white : #f8f9f2;
+$theme-hover : #66c7f4;
+$theme-dark-purp : #070133;
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -19,12 +27,17 @@
   outline: none;
 }
 
+/******************************************************************************/
+/**************************** Splash Page Stylings ****************************/
+/******************************************************************************/
+
 html, body{
   overflow-x: hidden;
   width: 100%;
   height: 100%;
   min-height: 100vh;
   min-width: 100vw;
+  background-color: $theme-white;
 }
 
 #splash, #main {
@@ -35,7 +48,7 @@ html, body{
 }
 
 #splash{
-  background-color: #461ca4;
+  background-color: $theme-color;
   align-content: center;
   align-items: center;
 }
@@ -59,7 +72,7 @@ h1{
     max-width: 35em;
     cursor: pointer;
     path{
-      fill: #ffffff;
+      fill: $theme-white;
         transition: filter .1s linear, fill .1s linear;
     }
   }
@@ -67,7 +80,7 @@ h1{
 h1:hover{
   #poly-site-splash{
     path{
-      fill: #66c7f4;
+      fill: $theme-hover;
     }
   }
 }
@@ -75,7 +88,7 @@ h1:hover{
 h3{
   font-family: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
   font-family: '8-bit';
-  color: #fff;
+  color: $theme-white;
   text-align: center;
   line-height: 2em;
   font-size: 2.7vh;
@@ -99,7 +112,7 @@ h3{
   display: flex;
   flex-flow: row nowrap;
   overflow: hidden;
-  border: 2em solid #fff;
+  border: 2em solid $theme-white;
   -o-border-image: url("../img/8-bit-border.png") 27% repeat;
      border-image: url("../img/8-bit-border.png") 27% repeat;
 }
@@ -108,7 +121,7 @@ h3{
   width: 0%;
   transition: width .2s linear;
   height: 3.5vh;
-  background-color: #fff;
+  background-color: $theme-white;
 }
 
 #animate-blocks-container{
@@ -119,7 +132,7 @@ h3{
 .block{
   width: 1.75vh;
   height: 1.75vh;
-  background-color: #fff;
+  background-color: $theme-white;
   animation: fillblock 4s linear infinite 2s;
   opacity: 0;
 }
@@ -197,9 +210,9 @@ h3{
   max-height: 100%;
   min-height: 0;
   height: auto;
-  background-color: #fff;
-  border: double 7px #070133;
-  outline: solid 4px #070133;
+  background-color: $theme-white;
+  border: double 7px $theme-dark-purp;
+  outline: solid 4px $theme-dark-purp;
   padding: 1rem;
   position: fixed;
   display: flex;
@@ -210,7 +223,7 @@ h3{
   p{
     font-family: Arial, Helvetica, sans-serif;
     font-family: 'retro';
-    color: #070133;
+    color: $theme-dark-purp;
     font-size: 2.2vh;
   }
 }
@@ -255,12 +268,6 @@ h3{
   }
 }
 
-// @media screen and (max-width: 68.875em){
-//   #speech-bubble{
-//     top: 5%;
-//   }
-// }
-
 @media screen and (max-width: 32em){
   #speech-bubble{
     top: 0%;
@@ -269,5 +276,69 @@ h3{
     max-height: 100%;
     min-height: 0;
     margin: 0 auto;
+  }
+}
+
+/******************************************************************************/
+/***************************** Main Page Stylings *****************************/
+/******************************************************************************/
+
+h1{
+  #poly-site{
+    width: 10em;
+    max-height: 20vh;
+    cursor: pointer;
+    path{
+      fill: $theme-color;
+        transition: filter .1s linear, fill .1s linear;
+    }
+  }
+}
+h1:hover{
+  #poly-site{
+    path{
+      fill: $theme-hover;
+    }
+  }
+}
+
+#header {
+  padding: .5em;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#footer {
+  background: $theme-color;
+  padding: .75em;
+}
+
+#main {
+  background: linear-gradient(to right, rgba(29, 20, 29, .1),  rgba(29, 20, 29, 0),  rgba(29, 20, 29, 0), rgba(29, 20, 29, 0), rgba(29, 20, 29, 0),  rgba(29, 20, 29, 0), rgba(29, 20, 29, 0),  rgba(29, 20, 29, .1)); 
+}
+
+main {
+  color: $theme-dark-purp;
+  padding: 1em 3em; 
+}
+
+#nav {
+  ul {
+    display: flex;
+    flex-flow: row wrap;
+    li {
+      list-style: none;
+      padding: 0 0 .2em 2em;
+      a{
+        color: $theme-dark-purp;
+        text-decoration: none;
+        font-family: Arial, Helvetica, sans-serif;
+        font-family: 'retro';
+        text-align: right;
+        font-size: 1.2em;
+      }
+    }
   }
 }

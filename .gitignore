@@ -3,8 +3,9 @@
 #ignore all node modules
 node_modules/
 
-#ignore the production folder
+#ignore the production folders
 dist/
+assets/
 
 #ignore this new expo folder that shouldn't be here in the first place
 .expo

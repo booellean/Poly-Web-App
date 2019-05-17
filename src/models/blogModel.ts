@@ -1,6 +1,8 @@
 import * as mongoose from 'mongoose';
+import { AuthorSchema } from '../models/authorModel';
 
 const Schema = mongoose.Schema;
+const Author = mongoose.model('Author', AuthorSchema);
 
 export const BlogSchema = new Schema({
   _id: {
@@ -9,8 +11,9 @@ export const BlogSchema = new Schema({
   title: {
     type: String
   },
-  authorId: {
-    type: mongoose.Types.ObjectId
+  author: {
+    type: Schema.Types.ObjectId,
+    ref: 'Author'
   },
   category: {
     type: Array,
@@ -25,6 +28,17 @@ export const BlogSchema = new Schema({
   },
   tags: {
     type: Array
+  },
+  img: {
+    name: {
+      type: String
+    },
+    suffix : {
+      type: String
+    },
+    fp : {
+      type: String
+    }
   }
 },
 {

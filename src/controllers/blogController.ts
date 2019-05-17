@@ -32,12 +32,14 @@ export class BlogController{
     query.skip = size *(pgNo -1);
     query.limit  = size;
 
-    Post.find({}, {}, query, (err, posts) => {
-        if(err){
-            res.send(err);
-        }
-        res.render(`blog.ejs`,{ posts });
-    });
+    Post.find({}, {}, query)
+    .populate('author')
+    .exec( (err, posts) => {
+      if(err){
+          return res.send(err);
+      }
+      res.render(`blog.ejs`,{ posts });
+  });
   }
 
   //For Individual Blog Posts

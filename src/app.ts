@@ -51,7 +51,8 @@ class App {
 
   private config(): void{
     this.app.use(express.static(__dirname + `/public/${mainRoute}/public/`));
-    this.app.use('admin', express.static(__dirname + `/admin/`));
+    this.app.use('/admin', express.static(__dirname + `/admin/`));
+    this.app.use('/assets', express.static(__dirname + `/../assets/`));
     this.app.set('view engine', 'ejs');
     this.app.set('views', [__dirname + `/views`, __dirname + `/public/${mainRoute}/views/`]);
     this.app.use(bodyParser.json());
