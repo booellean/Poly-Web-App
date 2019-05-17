@@ -38,7 +38,7 @@ export class BlogController{
       if(err){
           return res.send(err);
       }
-      res.render(`blog.ejs`,{ posts });
+      res.render(`pages/blog.ejs`,{ posts });
   });
   }
 

@@ -9,7 +9,7 @@ export class DashboardController{
           //Send variables in the Response to generate that content
   public generateDashboard (req: Request, res: Response) {
     res.status(200).render(
-      'dashboard.ejs'
+      'pages/dashboard.ejs'
     )
   }
 }

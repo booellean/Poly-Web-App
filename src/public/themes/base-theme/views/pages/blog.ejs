@@ -1,4 +1,4 @@
-<%- include('header') -%>
+<%- include('../partials/header') -%>
 <% //Generate Post Content
 posts.forEach( (post) =>{ %>
   <article id="<%= post._id %>">
@@ -8,5 +8,5 @@ posts.forEach( (post) =>{ %>
     <cite data-name="<%= post.author.name %>">by <%= post.author.alias %></cite>
   </article>
 <% }) %>
-<%- include('footer') -%>
-<%- include('script') -%>
+<%- include('../partials/footer') -%>
+<%- include('../partials/script') -%>

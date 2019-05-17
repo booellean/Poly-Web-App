@@ -42,7 +42,7 @@ export const gulpJs = [
 export const gulpImg = [
   {
     name : 'imgMain',
-    src : './src/public/public/themes/base-theme/public/img/*.{jpg,png}',
+    src : './src/public/public/themes/base-theme/public/img/*.{jpg,png,gif}',
     dest : './dist/public/themes/base-theme/public/img/'
   }
 ];
@@ -50,9 +50,14 @@ export const gulpImg = [
 //TODO: Images are currently being transferred... Need to standardize this
 export const gulpTransfer = [
   {
-    name : 'mainEjs',
-    src : './src/public/themes/base-theme/views/*.ejs',
-    dest : './dist/public/themes/base-theme/views/'
+    name : 'mainEjsPartials',
+    src : './src/public/themes/base-theme/views/partials/*.ejs',
+    dest : './dist/public/themes/base-theme/views/partials/'
+  },
+  {
+    name : 'mainEjsPages',
+    src : './src/public/themes/base-theme/views/pages/*.ejs',
+    dest : './dist/public/themes/base-theme/views/pages/'
   },
   {
     name : 'mainFonts',
@@ -66,7 +71,7 @@ export const gulpTransfer = [
   },
   {
     name : 'imgMain',
-    src : './src/public/themes/base-theme/public/img/*.{jpg,png}',
+    src : './src/public/themes/base-theme/public/img/*.{jpg,png,gif}',
     dest : './dist/public/themes/base-theme/public/img/'
   }
 ];

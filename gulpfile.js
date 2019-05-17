@@ -50,9 +50,14 @@ const adminJs = [
 const adminImg = [];
 const adminTransfer = [
   {
-    name : 'adminEjs',
-    src : './src/views/*.ejs',
-    dest : './dist/views/',
+    name : 'adminEjsPages',
+    src : './src/views/pages/*.ejs',
+    dest : './dist/views/pages/',
+  },
+  {
+    name : 'adminEjsPartials',
+    src : './src/views/partials/*.ejs',
+    dest : './dist/views/partials/',
   }
 ];
 
