@@ -1,10 +1,23 @@
 <%- include('../partials/header') -%>
-<% //Generate Post Content
+<% 
+//TODO: create a client side script with this and all items that will show times from the database. Times are automatically formatted in UTC, but can be formatted to user's local time on client side using the data-name attribute
+// Define options for how to render date here
+// For reference go to 
+let dateOptions = {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+  hour: 'numeric',
+  minute: '2-digit',
+  hour12: false
+  };
+
+// Generate Post Content
 posts.forEach( (post) =>{ %>
   <article id="<%= post._id %>">
     <img src="assets/<%= post.author.alias %>/<%= post.img.fp %>/<%= post.img.name %>.<%= post.img.suffix %>" />
     <h2><a href="blog/<%= post._id %>" target="_self"><%= post.title %></a></h2>
-    posted on <time><%= post.date %></time><br>
+    posted on <time data-time="<%= post.date %>"><%= new Intl.DateTimeFormat('en-US', dateOptions).format(post.date) %></time><br>
     <cite data-name="<%= post.author.name %>">by <%= post.author.alias %></cite>
   </article>
 <% }) %>
