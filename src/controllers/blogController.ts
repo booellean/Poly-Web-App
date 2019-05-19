@@ -20,27 +20,27 @@ export class BlogController{
   }
 
   public getBlogPosts (req: Request, res: Response) {
-    let pgNo = parseInt(req.query.pgNo);
-    let size = 10;
+    let pgNo = parseInt(req.query.pgNo) || 1;
+    let size = 12;
 
     if(pgNo < 0 || pgNo === 0) {
-        res = {"error" : true, "message" : "invalid page number, should start with 1"};
-        return res.json(res);
+        let message = {error : true, message : "invalid page number, should start with 1"};
+        return res.json(message);
     }
 
     Post.find({})
-    .countDocuments( (err, count) =>{
-      if (err) return err;
-    })
     .skip(size *(pgNo -1))
     .limit(size)
     .populate('author')
     .populate('img')
     .exec( (err, posts) => {
-      if(err){
+      Post.countDocuments().exec( (err, count)=>{
+        if(err){
           return res.send(err);
       }
-      res.render(`pages/blog.ejs`,{ posts });
+      let pages = Math.ceil(count/size);
+      res.render(`pages/blog.ejs`,{ posts, pages, pgNo });
+    });
   });
   }
 
