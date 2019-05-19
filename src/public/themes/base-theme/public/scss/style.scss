@@ -1,5 +1,5 @@
 /******************************************************************************/
-/****************** Variables to be included in all Sheets ********************/
+/******************** Globals to be included in all Sheets ********************/
 /******************************************************************************/
 
 @font-face {
@@ -26,6 +26,31 @@ $theme-focus: #e52d6b;
   padding: 0;
   z-index: 1;
   outline: none;
+}
+
+h1, h2, h3, h4, h5, h6,
+legend, select,
+header,
+noscript,
+tr, th, caption {
+  font-family: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
+  font-family: '8-bit';
+}
+
+nav, ul,ol, menu, li, a
+p, div, small, 
+td, table, tbody,col, colgroup,tfoot,
+article, aside, section,
+figcaption, main,
+time, summary, details,
+datalist, input, textarea, form, label, option, button,
+blockquote, cite {
+  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'retro';
+}
+
+a{
+  text-decoration: none;
 }
 
 /******************************************************************************/
@@ -98,8 +123,6 @@ main{
 }
 
 h3{
-  font-family: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
-  font-family: '8-bit';
   color: $theme-white;
   text-align: center;
   line-height: 2em;
@@ -233,8 +256,6 @@ h3{
   align-items: center;
   align-content: center;
   p{
-    font-family: Arial, Helvetica, sans-serif;
-    font-family: 'retro';
     color: $theme-dark-purp;
     font-size: 2.2vh;
   }
@@ -303,6 +324,7 @@ h3{
     flex-flow: row nowrap;
     align-items: center;
     justify-content: space-between;
+    background: linear-gradient($theme-white 70%, transparent);
     h1 {
       svg {
         width: 10em;
@@ -345,9 +367,6 @@ main {
       padding: 0 0 .2em 2em;
       a{
         color: $theme-dark-purp;
-        text-decoration: none;
-        font-family: Arial, Helvetica, sans-serif;
-        font-family: 'retro';
         text-align: right;
         font-size: 1.2rem;
       }
@@ -437,7 +456,6 @@ main {
     flex-flow: column wrap;
     align-items: center;
     li{
-      text-decoration: none;
       list-style: none;
       a{
         color: $theme-white;
@@ -454,4 +472,21 @@ main {
       }
     }
   }
+}
+#blog-page{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.blog-preview-images{
+  width: 100%;
+}
+
+.blog-preview-posts{
+  width: 30%;
+  max-width: 20em;
+  margin: 2.5% 1.5%;
+  padding: 1em;
 }

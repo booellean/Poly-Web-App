@@ -1,8 +1,10 @@
 import * as mongoose from 'mongoose';
 import { AuthorSchema } from '../models/authorModel';
+import { ImageSchema } from '../models/imageModel';
 
 const Schema = mongoose.Schema;
 const Author = mongoose.model('Author', AuthorSchema);
+const Image = mongoose.model('Image', ImageSchema);
 
 export const BlogSchema = new Schema({
   _id: {
@@ -14,6 +16,10 @@ export const BlogSchema = new Schema({
   author: {
     type: Schema.Types.ObjectId,
     ref: 'Author'
+  },
+  img: {
+    type: Schema.Types.ObjectId,
+    ref: 'Image'
   },
   category: {
     type: Array,
@@ -28,17 +34,6 @@ export const BlogSchema = new Schema({
   },
   tags: {
     type: Array
-  },
-  img: {
-    name: {
-      type: String
-    },
-    suffix : {
-      type: String
-    },
-    fp : {
-      type: String
-    }
   }
 },
 {

@@ -21,19 +21,21 @@ export class BlogController{
 
   public getBlogPosts (req: Request, res: Response) {
     let pgNo = parseInt(req.query.pgNo);
-    let size = 5;
-    let query= {};
+    let size = 10;
 
     if(pgNo < 0 || pgNo === 0) {
         res = {"error" : true, "message" : "invalid page number, should start with 1"};
         return res.json(res);
     }
 
-    query.skip = size *(pgNo -1);
-    query.limit  = size;
-
-    Post.find({}, {}, query)
+    Post.find({})
+    .countDocuments( (err, count) =>{
+      if (err) return err;
+    })
+    .skip(size *(pgNo -1))
+    .limit(size)
     .populate('author')
+    .populate('img')
     .exec( (err, posts) => {
       if(err){
           return res.send(err);

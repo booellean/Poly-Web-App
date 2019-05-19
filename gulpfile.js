@@ -47,7 +47,16 @@ const adminJs = [
     dest : './dist/'
   }
 ];
-const adminImg = [];
+//TODO, change to a temporary folder that will create responsive images and write to folder
+//TODO, or change this so it only changes one file that was uploaded and discards the task immediately...
+//TOODO Pass some variables or something??? In a function.....
+const adminImg = [
+  {
+    name: 'adminAssets',
+    src: './assets/users/booellean/images/*{jpg,png}',
+    dest: './assets/users/booellean/images/'
+  }
+];
 const adminTransfer = [
   {
     name : 'adminEjsPages',
