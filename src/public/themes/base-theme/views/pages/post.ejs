@@ -21,7 +21,7 @@ let dateOptions = {
       </header>
       
       <% if(post.category.length > 0){ %>
-        <aside id="categories" tabindex="0" aria-label="List of categories. Use arrows to navigate">
+        <aside id="categories" tabindex="0" aria-label="List of categories. Press tab and then use arrows to navigate">
           <ul data-node="group">
           <% post.category.sort().forEach( function(cat, idx, arr){
             if(idx === arr.length - 1){%>
@@ -55,7 +55,7 @@ let dateOptions = {
         </section>
 
         <% if(post.tags.length > 0){ %>
-        <aside id="tags" tabindex="0" aria-label="List of hashtags. Use arrows to navigate">
+        <aside id="tags" tabindex="0" aria-label="List of hashtags. Press tab and then use arrows to navigate">
           <ul data-node="group">
           <% post.tags.sort().forEach( function(tag, idx, arr){
             if(idx === arr.length - 1){%>

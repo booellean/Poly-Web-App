@@ -34,6 +34,7 @@ const generateSpeech = ()=> {
     lastIndex = 0; //Loop through the array, replay the conversation.
     toggleSpeech();
   }else{
+    speechBubble.setAttribute('aria-label', entireLog[lastIndex]);
     text.innerHTML = entireLog[lastIndex++];
   }
 }
