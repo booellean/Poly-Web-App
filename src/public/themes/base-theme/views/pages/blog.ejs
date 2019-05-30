@@ -1,5 +1,6 @@
 <%- include('../partials/header') -%>
-  <main id="blog-page">
+  <main>
+  <ul id="blog-page">
 <% 
 //TODO: create a client side script with this and all items that will show times from the database. Times are automatically formatted in UTC, but can be formatted to user's local time on client side using the data-name attribute
 // Define options for how to render date here
@@ -14,43 +15,45 @@ let dateOptions = {
   };
 // Generate Post Content
 posts.forEach( (post) =>{ %>
-  <article id="<%= post._id %>" class="blog-preview-posts">
-    <a href="blog/<%= post._id %>" target="_self"><h2><%= post.title %></h2></a>
+  <li id="<%= post._id %>" class="blog-preview-posts" >
+    <a href="/blog/<%= post._id %>" target="_self"><h3><%= post.title %></h3>
     posted on <time data-time="<%= post.date %>"><%= new Intl.DateTimeFormat('en-US', dateOptions).format(post.date) %></time><br>
     <cite data-name="<%= post.author.name %>">by <%= post.author.alias %></cite>
-    <a href="blog/<%= post._id %>" target="_self">
     <img  srcset="
-          assets/users/<%= post.img.fp %>/<%= post.img.name %>-1200.<%= post.img.suffix %> 1200w,
-          assets/users/<%= post.img.fp %>/<%= post.img.name %>-1000.<%= post.img.suffix %> 1000w,
-          assets/users/<%= post.img.fp %>/<%= post.img.name %>-800.<%= post.img.suffix %> 800w,
-          assets/users/<%= post.img.fp %>/<%= post.img.name %>-600.<%= post.img.suffix %> 600w,
-          assets/users/<%= post.img.fp %>/<%= post.img.name %>-400.<%= post.img.suffix %> 400w,
-          assets/users/<%= post.img.fp %>/<%= post.img.name %>-200.<%= post.img.suffix %> 200w
+          /assets/users/<%= post.img.fp %>/<%= post.img.name %>-1200.<%= post.img.suffix %> 1200w,
+          /assets/users/<%= post.img.fp %>/<%= post.img.name %>-1000.<%= post.img.suffix %> 1000w,
+          /assets/users/<%= post.img.fp %>/<%= post.img.name %>-800.<%= post.img.suffix %> 800w,
+          /assets/users/<%= post.img.fp %>/<%= post.img.name %>-600.<%= post.img.suffix %> 600w,
+          /assets/users/<%= post.img.fp %>/<%= post.img.name %>-400.<%= post.img.suffix %> 400w,
+          /assets/users/<%= post.img.fp %>/<%= post.img.name %>-200.<%= post.img.suffix %> 200w
           "
-          src="assets/users/<%= post.img.fp %>/<%= post.img.name %>.<%= post.img.suffix %>" 
+          src="/assets/users/<%= post.img.fp %>/<%= post.img.name %>.<%= post.img.suffix %>" 
           alt="<%= post.img.alt %>"
           class="blog-preview-images"/>
     </a>   
-  </article>
+  </li>
 <% }) %>
-  <nav id="posts-pagination">
-    <ul>
-    <% if(pgNo !== 1){ %>
-      <a href="?pgNo=<%= pgNo - 1 %>"
-        <li>
-          <i class="fa fa-chevron-left"></i>
-        </li>
-      </a>
-    <% } %>
-        <% if(pgNo < pages){ %>
-      <a href="?pgNo=<%= pgNo + 1 %>"
-        <li>
-          <i class="fa fa-chevron-right"></i>
-        </li>
-      </a>
-    <% } %>
-    </ul>
-  </nav>
+  </ul>
+  <% if (pages !== 1){ %>
+    <nav id="posts-pagination" role="navigation" aria-label="Pagination Navigation">
+      <ul>
+      <% if(pgNo !== 1){ %>
+        <a href="?pgNo=<%= pgNo - 1 %>" aria-label="Goto Page <%= pgNo - 1 %>">
+          <li>
+            <i class="fa fa-chevron-left"></i>
+          </li>
+        </a>
+      <% } %>
+          <% if(pgNo < pages){ %>
+        <a href="?pgNo=<%= pgNo + 1 %>" aria-label="Goto Page <%= pgNo + 1 %>">
+          <li>
+            <i class="fa fa-chevron-right"></i>
+          </li>
+        </a>
+      <% } %>
+      </ul>
+    </nav>
+  <% } %>
   </main>
 <%- include('../partials/footer') -%>
 <%- include('../partials/script') -%>

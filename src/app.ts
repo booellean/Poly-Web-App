@@ -8,6 +8,7 @@ import * as mongoose from "mongoose";
 //Routes imported
 import { HomeRoutes } from './routes/homeRoutes';
 import { BlogRoutes } from './routes/blogRoutes';
+import { ContactRoutes } from './routes/contactRoutes';
 import { DashboardRoutes } from './routes/dashboardRoutes';
 //pathnames for view engines
 import { ThemeRoutes } from './public/themes/base-theme/public/themeRoutes';
@@ -17,6 +18,7 @@ class App {
   public app: express.Application;
   public homeRoute: HomeRoutes = new HomeRoutes();
   public blogRoute: BlogRoutes = new BlogRoutes();
+  public contactRoute: ContactRoutes = new ContactRoutes();
   public dashboardRoute: DashboardRoutes = new DashboardRoutes();
   public mongoUrl: string = 'mongodb://localhost:27017/poly';
 
@@ -26,6 +28,7 @@ class App {
     this.homeRoute.homeRoutes(this.app);
     this.blogRoute.blogRoutes(this.app);
     this.dashboardRoute.dashboardRoutes(this.app);
+    this.contactRoute.contactRoutes(this.app);
     this.mongoSetup();
 
     // this.mountRoutes();
@@ -56,6 +59,8 @@ class App {
     this.app.set('view engine', 'ejs');
     this.app.set('views', [__dirname + `/views`, __dirname + `/public/${mainRoute}/views/`]);
     this.app.use(bodyParser.json());
+    //TODO: find if I need both .urlencoded() items
+    this.app.use(express.urlencoded());
     this.app.use(bodyParser.urlencoded({ extended: false }));
   }
 }

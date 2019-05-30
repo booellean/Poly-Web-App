@@ -15,38 +15,52 @@ const checkStatus = ()=> {
 }
 
 const checkKey = (event)=> {
-  if(event.code == "Space"){
-    generateSpeech();
-  }else{
-    closeSpeech();
+  let me = document.querySelector('#talk-to-me');
+  let speech = document.querySelector('#speech-bubble');
+
+  if(event.code == "Space" && document.activeElement === me){ 
+    return toggleSpeech();
+  }
+  if(event.code == "Space" && document.activeElement === speech){
+    return generateSpeech();
   }
 }
 
 const generateSpeech = ()=> {
   let speechBubble = document.querySelector('#speech-bubble');
   let text = document.querySelector('#conversation');
-  speechBubble.className = 'open';
 
   if(lastIndex >= entireLog.length){
     lastIndex = 0; //Loop through the array, replay the conversation.
-    closeSpeech();
+    toggleSpeech();
   }else{
     text.innerHTML = entireLog[lastIndex++];
-    text.setAttribute('role', 'status');
   }
 }
 
-const closeSpeech = ()=> {
+const toggleSpeech = ()=> {
   let speechBubble = document.querySelector('#speech-bubble');
   let text = document.querySelector('#conversation');
-  speechBubble.className = 'close';
-  text.setAttribute('role', '');
+  let me = document.querySelector('#talk-to-me');
+
+  if(speechBubble.className === 'open'){
+    speechBubble.className = 'close';
+    speechBubble.setAttribute('tabindex', '-1');
+    me.focus();
+    text.setAttribute('role', '');
+  }else{
+    speechBubble.className = 'open';
+    speechBubble.setAttribute('tabindex', '0');
+    generateSpeech();
+    speechBubble.focus();
+    text.setAttribute('role', 'status');
+  }
+  
 }
 
 window.addEventListener('load', checkStatus);
-document.querySelector('#poly-site-splash').addEventListener('click', generateSpeech);
-document.querySelector('#talk-to-me').addEventListener('click', generateSpeech);
-document.querySelector('#speech-bubble').addEventListener('click', closeSpeech);
+document.querySelector('#talk-to-me').addEventListener('click', toggleSpeech);
+document.querySelector('#speech-bubble').addEventListener('click', generateSpeech);
 window.addEventListener('keydown', checkKey);
 
 //conversation to interact with gif me

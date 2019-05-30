@@ -46,13 +46,17 @@ export class BlogController{
 
   //For Individual Blog Posts
   public getBlogPostID (req: Request, res: Response) {
-    Post.findById(req.params.postId, (err, post) => {
+    Post.findById(req.params.postId)
+    .populate('author')
+    .populate('img')
+    .limit(1)
+    .exec( (err, post) => {
 
         if(err){
             res.send(err);
         }
-        res.json(post);
-      }).limit(1);
+        res.render(`pages/post.ejs`,{ post });
+      });
   }
 
   public updateBlogPost (req: Request, res: Response) {

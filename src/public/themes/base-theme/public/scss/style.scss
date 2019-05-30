@@ -18,7 +18,8 @@ $theme-color : #461ca4;
 $theme-white : #f8f9f2;
 $theme-hover : #66c7f4;
 $theme-dark-purp : #070133;
-$theme-focus: #e52d6b;
+$theme-gray : #6b6b6b;
+$theme-focus : #e52d6b;
 
 * {
   box-sizing: border-box;
@@ -51,6 +52,8 @@ blockquote, cite {
 
 a { text-decoration: none; }
 li { list-style: none; }
+
+img{ width: 100%;}
 
 /******************************************************************************/
 /**************************** Splash Page Stylings ****************************/
@@ -263,6 +266,7 @@ h3{
 #talk-to-me{
   cursor: pointer;
   height: 55vh;
+  width: auto;
 }
 
 @keyframes openbubble{
@@ -384,6 +388,7 @@ main {
     flex-flow: row nowrap;
     height: auto;
     align-items: flex-start;
+    padding: 1em 0;
     order: 3;
     span{
       font-size: 1.2rem;
@@ -406,6 +411,7 @@ main {
       font-size: 1.2rem;
       background: $theme-white;
       margin: 1em 0;
+      border-radius: .5em;
     }
     fieldset{
       width: 90%;
@@ -427,12 +433,13 @@ main {
         font-size: 1.2rem;
         span{
           width: 20%;
-          font-size: 1.2rem;
+          font-size: 1.4rem;
         }
         input{
           width: 80%;
           font-size: 1.2rem;
           padding: .5em .25em;
+          border-radius: 0 2em 2em 0;
         }
       }
       textarea{
@@ -440,6 +447,7 @@ main {
         min-height: 20em;
         font-size: 1.4rem;
         padding: 1em;
+        border-radius: 0 2em 2em 2em;
         resize: vertical;
       }
     }
@@ -485,7 +493,21 @@ main {
   width: 30%;
   max-width: 20em;
   margin: 2.5% 1.5%;
-  padding: 1em;
+  padding: 1.4em;
+  background: #fff;
+  border-radius: 2em;
+  box-shadow: -.2em .2em .4em .3em $theme-gray;
+  text-align: center;
+  a{
+    h3{
+      color: $theme-dark-purp;
+      line-height: 1.5em;
+      word-wrap: break-word;
+    }
+  }
+  time {
+    font-size: 0.9em;
+  }
 }
 #posts-pagination{
   width: 100%;
@@ -520,6 +542,95 @@ main {
           color: $theme-focus;
         }
       }
+    }
+  }
+}
+
+@media screen and (max-width: 58.3125em){
+  #social-footer-nav{
+    width: 100%;
+    order: 1;
+    ul{
+      flex-flow: row wrap;
+    }
+  }
+  #footer{
+    form{
+      order: 2;
+      margin: 0 auto;
+      padding: 2em;
+      fieldset{
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 52.875em){
+  .blog-preview-posts{
+    width: 45%;
+  }
+}
+
+@media screen and (max-width: 38.75em){
+  .blog-preview-posts{
+    width: 100%;
+    max-width: 100%;
+    margin: 1.7em;
+  }
+  #blog-page{
+    justify-content: center;
+  }
+}
+
+/******************************************************************************/
+/***************************** Post Page Stylings *****************************/
+/******************************************************************************/
+
+.main-page-article{
+  text-align: center;
+  header{
+    padding: 1.5em;
+    h1{
+      font-size: 2rem;
+    }
+    cite, time{
+      font-size: 1.3rem;
+    }
+  }
+  .parallax{
+    .blog-article-image {
+      object-fit: cover;
+      object-position: center center;
+      height: 20em;
+    }
+  }
+  section{
+    padding: 1.5em 0;
+    p{
+      text-align: left;
+      font-size: 1.4rem;
+    }
+  }
+}
+
+#categories{
+  ul{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    li{
+      padding: 0.15em;
+    }
+  }
+}
+
+#tags{
+  ul {
+    display: flex;
+    flex-flow: row wrap;
+    li{
+      padding: 0.15em;
     }
   }
 }

@@ -1,11 +1,11 @@
-  <form id="contact-author">
+  <form id="contact-author" aria-labelledby="contact-form" tabindex="0" method="POST" action="/contact-form">
     <fieldset>
-      <legend>Contact</legend>
-        <label for="form-name"><span>Name: </span><input type="text" id="form-name"/></label>
-        <label for="form-email"><span>Email: </span><input type="email" id="form-email"/></label>
-        <label for="form-tel"><span>Telephone: </span><input type="tel" id="form-tel"/></label>
-        <label for="form-textarea">Message:</label>
-        <textarea id="form-textarea"></textarea>
+      <legend id="contact-form" aria-label="Contact the Author Form">Contact</legend>
+        <label for="form-name"><span>Name: </span><input type="text" id="form-name" name="formName"/></label>
+        <label for="form-email"><span>Email: </span><input type="email" id="form-email" name="formEmail"/></label>
+        <label for="form-tel"><span>Phone: </span><input type="tel" id="form-tel" name="formTel"/></label>
+        <label for="form-textarea"><span>Message: </span></label>
+        <textarea id="form-textarea" name="formMessage"></textarea>
     </fieldset>
     <button id="contact-submit">Send</button>
   </form>

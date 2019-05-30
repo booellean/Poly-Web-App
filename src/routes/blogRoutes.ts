@@ -13,7 +13,7 @@ export class BlogRoutes {
     this.express = express();
   }
   public blogRoutes(app): void {
-    app.route('/blog')
+    app.route('/blog/')
     .get(this.blogController.getBlogPosts)
     .post(this.blogController.addBlogPost)
 
