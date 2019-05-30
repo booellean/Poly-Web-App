@@ -7,6 +7,9 @@ node_modules/
 dist/
 assets/
 
+#ignore the configure files
+src/config/
+
 #ignore this new expo folder that shouldn't be here in the first place
 .expo
 

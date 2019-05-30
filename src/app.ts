@@ -2,7 +2,7 @@
 import * as express from 'express';
 import {Request, Response} from "express";
 //body Parser
-import * as bodyParser from "body-parser";
+import * as bodyParser from 'body-parser';
 //mongoose
 import * as mongoose from "mongoose";
 //Routes imported
@@ -59,9 +59,7 @@ class App {
     this.app.set('view engine', 'ejs');
     this.app.set('views', [__dirname + `/views`, __dirname + `/public/${mainRoute}/views/`]);
     this.app.use(bodyParser.json());
-    //TODO: find if I need both .urlencoded() items
-    this.app.use(express.urlencoded());
-    this.app.use(bodyParser.urlencoded({ extended: false }));
+    this.app.use(bodyParser.urlencoded({ extended: true }));
   }
 }
 
