@@ -13,6 +13,15 @@ export class ContactFormController{
     let transporter = nodeMailer.createTransport(
       SMTP_SETUP
     );
+
+    transporter.verify((error, success) => {
+      if (error) {
+        console.log(error);
+      } else {
+        console.log('Server is ready to take messages');
+      }
+    });
+    
     let mailOptions = {
       from: req.body.formEmail, // sender address
       to: SMTP_SETUP.auth.pass,
@@ -21,7 +30,7 @@ export class ContactFormController{
              Tel: ${req.body.formTel}
              Email: ${req.body.formEmail}
              Message: ${req.body.formMessage}`,
-      html: '<b>NodeJS Email</b>' // html body
+      html: '<b>Poly entertainment inquiry</b>' // html body
     };
     transporter.sendMail(mailOptions, (error, info) => {
       if (error) {

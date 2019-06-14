@@ -45,6 +45,11 @@ const adminJs = [
     name : 'serverJs',
     src : './src/*.js',
     dest : './dist/'
+  },
+  {
+    name: 'configJs',
+    src: './src/config/*js',
+    dest: './dist/config/'
   }
 ];
 //TODO, change to a temporary folder that will create responsive images and write to folder
