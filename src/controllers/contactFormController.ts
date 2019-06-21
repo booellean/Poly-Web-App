@@ -7,9 +7,32 @@ import { SMTP_SETUP } from '../config/email';
 const Email = mongoose.model('Email', ContactSchema);
 
 export class ContactFormController{
-  public submitForm(req: Request, res: Response) {
-    let message = new Email(req.body);
   
+  public confirmFields(name: string, email: string, phone: string, body: string){
+    let valid = true;
+    let error = 'Please correct the following errors:'
+
+    if(!(name.length > 1)){
+      valid = false;
+      error += '\nPlease enter a valid name';
+    }
+    if(email.indexOf('@') < 0 || email.indexOf('.') < 0){
+      valid = false;
+      error += '\nPlease enter a valid email';
+    }
+    if(phone.length !== 7 || isNaN(parseInt(phone))){
+      valid = false;
+      error += '\nPlease enter a valid phone number';
+    }
+    return {bool : valid, err : error};
+  }
+
+  public submitForm(req: Request, res: Response) {
+    let rawObj: object = req.body;
+    console.log(rawObj);
+
+    let message = new Email(req.body);
+    
     let transporter = nodeMailer.createTransport(
       SMTP_SETUP
     );
@@ -21,7 +44,7 @@ export class ContactFormController{
         console.log('Server is ready to take messages');
       }
     });
-    
+
     let mailOptions = {
       from: req.body.formEmail, // sender address
       to: SMTP_SETUP.auth.pass,
